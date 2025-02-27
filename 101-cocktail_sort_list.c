@@ -28,10 +28,8 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	int swapped = 1;
-	listint_t *start = NULL;
-	listint_t *end = NULL;
 	listint_t *current;
+	int swapped = 1;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
@@ -40,7 +38,7 @@ void cocktail_sort_list(listint_t **list)
 	{
 		swapped = 0;
 		/* Forward pass */
-		for (current = *list; current->next != end; current = current->next)
+		for (current = *list; current->next != NULL; current = current->next)
 		{
 			if (current->n > current->next->n)
 			{
@@ -50,13 +48,13 @@ void cocktail_sort_list(listint_t **list)
 				current = current->prev;
 			}
 		}
+
 		if (!swapped)
 			break;
 
 		swapped = 0;
-		end = current;
 		/* Backward pass */
-		for (current = end; current->prev != start; current = current->prev)
+		for (; current->prev != NULL; current = current->prev)
 		{
 			if (current->n < current->prev->n)
 			{
@@ -66,6 +64,5 @@ void cocktail_sort_list(listint_t **list)
 				current = current->next;
 			}
 		}
-		start = current;
 	}
 }
