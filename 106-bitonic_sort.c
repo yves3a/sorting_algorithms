@@ -26,7 +26,8 @@ void swap_elements(int *a, int *b)
  * @seq: Size of sequence to sort
  * @flow: Direction to sort (1 for UP, 0 for DOWN)
  */
-void bitonic_merge(int *array, size_t size, size_t start, size_t seq, char flow)
+void bitonic_merge(int *array, size_t size, size_t start,
+		size_t seq, char flow)
 {
 	size_t i, jump = seq / 2;
 
@@ -51,7 +52,8 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq, char flow)
  * @seq: Size of the block
  * @flow: Direction to sort (1 for UP, 0 for DOWN)
  */
-void bitonic_seq(int *array, size_t size, size_t start, size_t seq, char flow)
+void bitonic_seq(int *array, size_t size, size_t start,
+		size_t seq, char flow)
 {
 	size_t cut = seq / 2;
 	char *str = (flow == UP) ? "UP" : "DOWN";
