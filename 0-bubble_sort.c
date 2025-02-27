@@ -11,6 +11,10 @@ void bubble_sort(int *array, size_t size)
 	size_t i, j;
 	int temp;
 
+	/* Check for NULL array or size of 0 */
+	if (array == NULL || size < 2)
+		return;
+
 	/* Iterate through array n-1 times */
 	for (i = 0; i < size - 1; i++)
 	{
